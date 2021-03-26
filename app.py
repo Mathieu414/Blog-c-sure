@@ -20,7 +20,6 @@ HELLO_STRINGS = {
         "sp": "Hola mundo\n"
 }
 
-
 app = Flask(__name__)
 
 """
@@ -45,7 +44,6 @@ def hello_world():
     #abort(404)
     return response
     #return resp
-
 """
 
 @app.route('/')
@@ -72,6 +70,7 @@ def about():
     app.logger.debug('About Context: {}'.format(tpl_context))
     return render_template('about.html', context=tpl_context, page_title="A propos")
 """
+
 @app.route('/Loup life')
 def loup():
     app.logger.debug('Loup life')
@@ -92,6 +91,10 @@ def shn():
     app.logger.debug('SHN life')
     return render_template('SHN_CO.html')
 
+@app.route('/new_post')
+def new():
+    app.logger.debug('New Post')
+    return render_template('new_post.html')
 
 # Script starts here
 if __name__ == '__main__':
