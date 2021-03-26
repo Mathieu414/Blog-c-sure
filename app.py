@@ -23,7 +23,7 @@ HELLO_STRINGS = {
 
 app = Flask(__name__)
 
-
+"""
 @app.route('/hello_world')
 def hello_world():
     app.logger.debug('Hello world')
@@ -46,13 +46,14 @@ def hello_world():
     return response
     #return resp
 
+"""
 
 @app.route('/')
 def index():
     app.logger.debug('serving root URL /')
-    return render_template('index.html')
+    return render_template('accueil.html')
 
-
+"""
 @app.route('/about')
 def about():
     from datetime import datetime
@@ -70,6 +71,11 @@ def about():
     # Now let's see how the context looks like
     app.logger.debug('About Context: {}'.format(tpl_context))
     return render_template('about.html', context=tpl_context, page_title="A propos")
+"""
+@app.route('/Loup life')
+def loup():
+    app.logger.debug('Loup life')
+    return render_template('Loup_cesure.html')
 
 
 # Script starts here
