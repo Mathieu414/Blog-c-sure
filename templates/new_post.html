@@ -3,4 +3,12 @@
 {% block content %}
 <h1>Poste tes news sur ton article !</h1>
 
+<form class=":valid" method="post">
+    <label for="title">Titre du paragraphe :</label><br>
+    <input type="text" id="title" name="title" placeholder="Titre du paragraphe" required><br>
+    <label for="news">Ton texte :</label><br>
+    <textarea id="news" name="news" placeholder="Enrichit nous de tes nouvelles" cols="150" rows="50" required></textarea><br>
+    <input type="submit" value="Submit">
+</form>
+
 {% endblock %}
