@@ -77,6 +77,21 @@ def loup():
     app.logger.debug('Loup life')
     return render_template('Loup_cesure.html')
 
+@app.route('/Nino life')
+def nino():
+    app.logger.debug('Nino life')
+    return render_template('Nino_cesure.html')
+
+@app.route('/Alexandre life')
+def alexandre():
+    app.logger.debug('Alexandre life')
+    return render_template('Alexandre_echange.html')
+
+@app.route('/SHN life')
+def shn():
+    app.logger.debug('SHN life')
+    return render_template('SHN_CO.html')
+
 
 # Script starts here
 if __name__ == '__main__':
