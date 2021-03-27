@@ -1,14 +1,72 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Poste tes news sur ton article !</h1>
+<h1 class = "mt-5">Poste tes news sur ton article !</h1>
 
-<form class=":valid" method="post">
-    <label for="title">Titre du paragraphe :</label><br>
-    <input type="text" id="title" name="title" placeholder="Titre du paragraphe" required><br>
-    <label for="news">Ton texte :</label><br>
-    <textarea id="news" name="news" placeholder="Enrichit nous de tes nouvelles" cols="150" rows="50" required></textarea><br>
-    <input type="submit" value="Submit">
+<h2 class = "mt-5">Identification :</h2>
+
+<form class = ":valid" method = "get">
+    <label for="username">Utilisateur :</label>
+    <input type="text" id="username" name="username" placeholder = "Prénom Nom" required> <br>
+    <label for="pass">Mot de passe (8 caractères minimum) :</label>
+    <input type="password" id="pass" name="password" minlength="8" required>
+    <input type="submit" value="S'identifier">
 </form>
+
+{% if user == "avergnaud" %}
+    <h1 class = "mt-5">Bienvenue {{user}}</h1>
+    <form class=":valid" method="post">
+        <label for="title">Titre du paragraphe :</label><br>
+        <input type="text" id="title" name="title" placeholder="Titre du paragraphe" required><br>
+        <label for="news">Ton texte :</label><br>
+        <textarea id="news" name="news" placeholder="Enrichit nous de tes nouvelles" cols="150" rows="50" required></textarea><br>
+        <input type="submit" value="Submit">
+    </form>
+{% endif %}
+
+{% if user == "avilanoba" %}
+    <h1 class = "mt-5">Bienvenue {{user}}</h1>
+    <form class=":valid" method="post">
+        <label for="title">Titre du paragraphe :</label><br>
+        <input type="text" id="title" name="title" placeholder="Titre du paragraphe" required><br>
+        <label for="news">Ton texte :</label><br>
+        <textarea id="news" name="news" placeholder="Enrichit nous de tes nouvelles" cols="150" rows="50" required></textarea><br>
+        <input type="submit" value="Submit">
+    </form>
+{% endif %}
+
+{% if user == "mperrin" %}
+    <h1 class = "mt-5">Bienvenue {{user}}</h1>
+    <form class=":valid" method="post">
+        <label for="title">Titre du paragraphe :</label><br>
+        <input type="text" id="title" name="title" placeholder="Titre du paragraphe" required><br>
+        <label for="news">Ton texte :</label><br>
+        <textarea id="news" name="news" placeholder="Enrichit nous de tes nouvelles" cols="150" rows="50" required></textarea><br>
+        <input type="submit" value="Submit">
+    </form>
+{% endif %}
+
+{% if user == "lpetitjean" %}
+    <h1 class = "mt-5">Bienvenue {{user}}</h1>
+    <form class=":valid" method="post">
+        <label for="title">Titre du paragraphe :</label><br>
+        <input type="text" id="title" name="title" placeholder="Titre du paragraphe" required><br>
+        <label for="news">Ton texte :</label><br>
+        <textarea id="news" name="news" placeholder="Enrichit nous de tes nouvelles" cols="150" rows="50" required></textarea><br>
+        <input type="submit" value="Submit">
+    </form>
+{% endif %}
+
+{% if user == "nmolin" %}
+    <h1 class = "mt-5">Bienvenue {{user}}</h1>
+    <form class=":valid" method="post">
+        <label for="title">Titre du paragraphe :</label><br>
+        <input type="text" id="title" name="title" placeholder="Titre du paragraphe" required><br>
+        <label for="news">Ton texte :</label><br>
+        <textarea id="news" name="news" placeholder="Enrichit nous de tes nouvelles" cols="150" rows="50" required></textarea><br>
+        <input type="submit" value="Submit">
+    </form>
+{% endif %}
+
 
 {% endblock %}

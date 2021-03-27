@@ -4,4 +4,10 @@
 <h1>About the "watch my life" project</h1>
 
 <p>Le but de ce blog est de maintenir une interaction forte et dynamique avec nos nombreux followers. Vous pourrez ainsi suivre nos péripéties et aventures🏖️ et nous soutenir durant nos expériences les plus fooooolles 🤗️ et intenses 😎️ </p>
+
+{% if new_article is defined %}
+    <h1 class = "mt-5">{{new_article["title"]}}</h1>
+    {{new_article["news"]}}
+{% endif %}
+
 {% endblock %}
