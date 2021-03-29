@@ -75,6 +75,25 @@ def new():
                 return render_template("Nino_cesure.html", articles = list_articles_Nino) 
     return render_template('new_post.html')
 
+@app.route('/search/', methods=['GET'])
+def search():
+    app.logger.debug(request.args)
+    searchword = request.args.get('pattern')
+    pages = [list_articles_Nino, list_articles_Alex, list_articles_Loup, list_articles_SHN]
+    for i in range(len(pages)) :
+        for article in pages[i] :
+            if searchword in article["title"] :
+                if i == 0 :
+                    return render_template('Nino_cesure.html', search = article)
+                elif i == 1 :
+                    return render_template('Alexandre_echange.html', search = article)
+                elif i == 2 :
+                    return render_template('Loup_cesure.html', search = article)
+                elif i == 3 :
+                    return render_template('SHN_CO.html', search = article)
+    else : 
+        abort(make_response('Your search "'+searchword+'" was not found.', 404))
+
 # Script starts here
 if __name__ == '__main__':
     from os import environ
