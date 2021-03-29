@@ -7,6 +7,12 @@ from flask import render_template
 
 app = Flask(__name__)
 
+# Listes des articles par page contenus dans des dictionnaires
+list_articles_Alex = []
+list_articles_Loup = []
+list_articles_Nino = []
+list_articles_SHN = []
+
 @app.route('/')
 def index():
     app.logger.debug('serving root URL /')
@@ -15,22 +21,22 @@ def index():
 @app.route('/Loup life')
 def loup():
     app.logger.debug('Loup life')
-    return render_template('Loup_cesure.html')
+    return render_template('Loup_cesure.html', articles = list_articles_Loup)
 
 @app.route('/Nino life')
 def nino():
     app.logger.debug('Nino life')
-    return render_template('Nino_cesure.html')
+    return render_template('Nino_cesure.html', articles = list_articles_Nino)
 
 @app.route('/Alexandre life')
 def alexandre():
     app.logger.debug('Alexandre life')
-    return render_template('Alexandre_echange.html')
+    return render_template('Alexandre_echange.html', articles = list_articles_Alex)
 
 @app.route('/SHN life')
 def shn():
     app.logger.debug('SHN life')
-    return render_template('SHN_CO.html')
+    return render_template('SHN_CO.html', articles = list_articles_SHN)
 
 @app.route('/new_post', methods = ["GET","POST"])
 def new():
@@ -53,15 +59,20 @@ def new():
         if request.form is not None :
             new_article = request.form.to_dict()
             if username == "avergnaud" :
-                return render_template("SHN_CO.html", new_article = new_article) 
+                list_articles_SHN.append(new_article)
+                return render_template("SHN_CO.html", articles = list_articles_SHN) 
             if username == "avilanoba" :
-                return render_template("Alexandre_echange.html", new_article = new_article) 
+                list_articles_Alex.append(new_article)
+                return render_template("Alexandre_echange.html", articles = list_articles_Alex) 
             if username == "mperrin" :
-                return render_template("SHN_CO.html", new_article = new_article) 
+                list_articles_SHN.append(new_article)
+                return render_template("SHN_CO.html", articles = list_articles_SHN) 
             if username == "lpetitjean" :
-                return render_template("Loup_cesure.html", new_article = new_article)
+                list_articles_Loup.append(new_article)
+                return render_template("Loup_cesure.html", articles = list_articles_Loup)
             if username == "nmolin" :
-                return render_template("Nino_cesure.html", new_article = new_article) 
+                list_articles_Nino.append(new_article)
+                return render_template("Nino_cesure.html", articles = list_articles_Nino) 
     return render_template('new_post.html')
 
 # Script starts here
