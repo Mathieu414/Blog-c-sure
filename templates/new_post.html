@@ -3,70 +3,106 @@
 {% block content %}
 <h1 class = "mt-5">Poste tes news sur ton article !</h1>
 
-<h2 class = "mt-5">Identification :</h2>
+<h2>Identification :</h2>
+<div class="row justify-content-center">
+    <div class="col-lg-5 col-sm-10">
+        <form method = "get">
+            <div class="form-group">
+                <label for="username">Utilisateur :</label>
+                <input type="text" class="form-control" id="username" name="username" placeholder = "Identifiant" required> <br>
+            </div>
+            <div class="form-group">
+                <label for="pass">Mot de passe :</label>
+                <input type="password" class="form-control" id="pass" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary mt-2">Submit</button>
+        </form>
+    </div>
+</div>
 
-<form class = ":valid" method = "get">
-    <label for="username">Utilisateur :</label>
-    <input type="text" id="username" name="username" placeholder = "Identifiant" required> <br>
-    <label for="pass">Mot de passe :</label>
-    <input type="password" id="pass" name="password" required>
-    <input type="submit" value="S'identifier">
-</form>
 
-{% if user == "avergnaud" %}
+{% if user in ["avergnaud","avilanoba","mperrin","lpetitjean","nmolin"] %}
     <h1 class = "mt-5">Bienvenue {{user}}</h1>
-    <form class=":valid" method="post">
-        <label for="title">Titre du paragraphe :</label><br>
-        <input type="text" id="title" name="title" placeholder="Titre du paragraphe" required><br>
-        <label for="news">Ton texte :</label><br>
-        <textarea id="news" name="news" placeholder="Enrichit nous de tes nouvelles" cols="150" rows="50" required></textarea><br>
-        <input type="submit" value="Submit">
+    <form method="post">
+        <div class="col col-md-4">
+            <div class="form-group">
+                <label for="title">Titre du paragraphe :</label>
+                <input class="form-control" type="text" id="title" name="title" placeholder="Titre du paragraphe">
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="news">Ton texte :</label>
+            <textarea class="form-control" id="news" name="news" placeholder="Enrichit nous de tes nouvelles" rows="5"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary m-2">Submit</button>
     </form>
 {% endif %}
 
+<!--
+
 {% if user == "avilanoba" %}
     <h1 class = "mt-5">Bienvenue {{user}}</h1>
-    <form class=":valid" method="post">
-        <label for="title">Titre du paragraphe :</label><br>
-        <input type="text" id="title" name="title" placeholder="Titre du paragraphe" required><br>
-        <label for="news">Ton texte :</label><br>
-        <textarea id="news" name="news" placeholder="Enrichit nous de tes nouvelles" cols="150" rows="50" required></textarea><br>
-        <input type="submit" value="Submit">
+    <form method="post">
+        <div class="form-group">
+            <label for="title">Titre du paragraphe :</label>
+            <input class="form-control" type="text" id="title" name="title" placeholder="Titre du paragraphe">
+        </div>
+        <div class="form-group">
+            <label for="news">Ton texte :</label>
+            <textarea class="form-control" id="news" name="news" placeholder="Enrichit nous de tes nouvelles" rows="5"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary mt-2">Submit</button>
     </form>
 {% endif %}
 
 {% if user == "mperrin" %}
     <h1 class = "mt-5">Bienvenue {{user}}</h1>
-    <form class=":valid" method="post">
-        <label for="title">Titre du paragraphe :</label><br>
-        <input type="text" id="title" name="title" placeholder="Titre du paragraphe" required><br>
-        <label for="news">Ton texte :</label><br>
-        <textarea id="news" name="news" placeholder="Enrichit nous de tes nouvelles" cols="150" rows="50" required></textarea><br>
-        <input type="submit" value="Submit">
+    <form method="post">
+        <div class="form-group ">
+            <label for="title">Titre du paragraphe :</label>
+            <input class="form-control" type="text" id="title" name="title" placeholder="Titre du paragraphe">
+        </div>
+        <div class="form-group">
+            <label for="news">Ton texte :</label>
+            <textarea class="form-control" id="news" name="news" placeholder="Enrichit nous de tes nouvelles" rows="5"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary mt-2">Submit</button>
     </form>
 {% endif %}
 
 {% if user == "lpetitjean" %}
-    <h1 class = "mt-5">Bienvenue {{user}}</h1>
-    <form class=":valid" method="post">
-        <label for="title">Titre du paragraphe :</label><br>
-        <input type="text" id="title" name="title" placeholder="Titre du paragraphe" required><br>
-        <label for="news">Ton texte :</label><br>
-        <textarea id="news" name="news" placeholder="Enrichit nous de tes nouvelles" cols="150" rows="50" required></textarea><br>
-        <input type="submit" value="Submit">
-    </form>
+<h1 class = "mt-5">Bienvenue {{user}}</h1>
+<form method="post">
+    <div class="form-group">
+        <label for="title">Titre du paragraphe :</label>
+        <input class="form-control" type="text" id="title" name="title" placeholder="Titre du paragraphe">
+    </div>
+    <div class="form-group">
+        <label for="news">Ton texte :</label>
+        <textarea class="form-control" id="news" name="news" placeholder="Enrichit nous de tes nouvelles" rows="5"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary mt-2">Submit</button>
+</form>
 {% endif %}
 
 {% if user == "nmolin" %}
-    <h1 class = "mt-5">Bienvenue {{user}}</h1>
-    <form class=":valid" method="post">
-        <label for="title">Titre du paragraphe :</label><br>
-        <input type="text" id="title" name="title" placeholder="Titre du paragraphe" required><br>
-        <label for="news">Ton texte :</label><br>
-        <textarea id="news" name="news" placeholder="Enrichit nous de tes nouvelles" cols="150" rows="50" required></textarea><br>
-        <input type="submit" value="Submit">
-    </form>
+<h1 class = "mt-5">Bienvenue {{user}}</h1>
+<form method="post">
+    <div class="form-group">
+        <label for="title">Titre du paragraphe :</label>
+        <input class="form-control" type="text" id="title" name="title" placeholder="Titre du paragraphe">
+    </div>
+    <div class="form-group">
+        <label for="news">Ton texte :</label>
+        <textarea class="form-control" id="news" name="news" placeholder="Enrichit nous de tes nouvelles" rows="5"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary mt-2">Submit</button>
+</form>
 {% endif %}
+
+    
+-->
 
 
 {% endblock %}
