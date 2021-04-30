@@ -4,18 +4,42 @@
 from flask import Flask, g
 from flask import abort, request, make_response
 from flask import render_template
+import glob
+import os
 
 app = Flask(__name__)
 
 # Listes des articles par page contenus dans des dictionnaires
+path_articles = str(os.getcwd()+"/articles")
+list_path_Alex = glob.glob(str(path_articles+"/Alex/*.txt"))
+list_path_Loup = glob.glob(str(path_articles+"/Loup/*.txt"))
+list_path_Nino = glob.glob(str(path_articles+"/Nino/*.txt"))
+list_path_SHN = glob.glob(str(path_articles+"/SHN/*.txt"))
 list_articles_Alex = []
 list_articles_Loup = []
 list_articles_Nino = []
 list_articles_SHN = []
 
+def create_dict(path) :
+    with open(path, "r") as fichier :
+        lines = fichier.readlines()
+        return {"title" : lines[0], "news" : '\n'.join(lines[1:])}
+
 @app.route('/')
 def index():
     app.logger.debug('serving root URL /')
+    if list_articles_Loup == [] :
+        for fichier in list_path_Loup :
+            list_articles_Loup.append(create_dict(fichier))
+    if list_articles_Nino == [] :
+        for fichier in list_path_Nino :
+            list_articles_Nino.append(create_dict(fichier))
+    if list_articles_Alex == [] :
+        for fichier in list_path_Alex :
+            list_articles_Alex.append(create_dict(fichier))
+    if list_articles_SHN == [] :
+        for fichier in list_path_SHN :
+            list_articles_SHN.append(create_dict(fichier))
     return render_template('accueil.html')
 
 @app.route('/Loup life')
@@ -41,6 +65,7 @@ def shn():
 @app.route('/new_post', methods = ["GET","POST"])
 def new():
     app.logger.debug('New Post')
+    app.logger.debug(path_articles)
     if request.method == "GET" :
         username = request.args.get("username")
         password = request.args.get("password")
@@ -59,19 +84,39 @@ def new():
         if request.form is not None :
             new_article = request.form.to_dict()
             if username == "avergnaud" :
-                list_articles_SHN.append(new_article)
+                with open(str(path_articles+"/SHN/"+new_article["title"]+".txt"), "x") as fichier :
+                    fichier.write(new_article["title"]+"\n")
+                    fichier.write(new_article["news"])
+                if new_article not in list_articles_SHN :
+                    list_articles_SHN.append(new_article)
                 return render_template("SHN_CO.html", articles = list_articles_SHN) 
             if username == "avilanoba" :
-                list_articles_Alex.append(new_article)
+                with open(str(path_articles+"/Alex/"+new_article["title"]+".txt"), "x") as fichier :
+                    fichier.write(new_article["title"]+"\n")
+                    fichier.write(new_article["news"])
+                if new_article not in list_articles_Alex :
+                    list_articles_Alex.append(new_article)
                 return render_template("Alexandre_echange.html", articles = list_articles_Alex) 
             if username == "mperrin" :
-                list_articles_SHN.append(new_article)
+                with open(str(path_articles+"/SHN/"+new_article["title"]+".txt"), "x") as fichier :
+                    fichier.write(new_article["title"]+"\n")
+                    fichier.write(new_article["news"])
+                if new_article not in list_articles_SHN :
+                    list_articles_SHN.append(new_article)
                 return render_template("SHN_CO.html", articles = list_articles_SHN) 
             if username == "lpetitjean" :
-                list_articles_Loup.append(new_article)
+                with open(str(path_articles+"/Loup/"+new_article["title"]+".txt"), "x") as fichier :
+                    fichier.write(new_article["title"]+"\n")
+                    fichier.write(new_article["news"])
+                if new_article not in list_articles_Loup :
+                    list_articles_Loup.append(new_article)
                 return render_template("Loup_cesure.html", articles = list_articles_Loup)
             if username == "nmolin" :
-                list_articles_Nino.append(new_article)
+                with open(str(path_articles+"/Nino/"+new_article["title"]+".txt"), "x") as fichier :
+                    fichier.write(new_article["title"]+"\n")
+                    fichier.write(new_article["news"])
+                if new_article not in list_articles_Nino :
+                    list_articles_Nino.append(new_article)
                 return render_template("Nino_cesure.html", articles = list_articles_Nino) 
     return render_template('new_post.html')
 
