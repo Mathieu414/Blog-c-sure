@@ -10,7 +10,7 @@ import os
 app = Flask(__name__)
 
 # Listes des articles par page contenus dans des dictionnaires
-path_articles = str(os.getcwd()+"/articles")
+path_articles = str(os.getcwd())
 list_path_Alex = glob.glob(str(path_articles+"/Alex/*.txt"))
 list_path_Loup = glob.glob(str(path_articles+"/Loup/*.txt"))
 list_path_Nino = glob.glob(str(path_articles+"/Nino/*.txt"))
