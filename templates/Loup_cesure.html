@@ -1,9 +1,10 @@
 {% extends "base.html" %}
+{% set active_page = "loup" %}
 
 {% block content %}
-<h1>About the "watch my life" project</h1>
+<h1 class = "mt-5 text-center">Loup</h1>
 
-<p>Le but de ce blog est de maintenir une interaction forte et dynamique avec nos nombreux followers. Vous pourrez ainsi suivre nos péripéties et aventures🏖️ et nous soutenir durant nos expériences les plus fooooolles 🤗️ et intenses 😎️ </p>
+<p class = lead></p>
 
 {% for article in articles %}
     <h1 class = "mt-5">{{article["title"]}}</h1>

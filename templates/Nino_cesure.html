@@ -1,9 +1,21 @@
 {% extends "base.html" %}
+{% set active_page = "nino" %}
 
 {% block content %}
-<h1>About the "watch my life" project</h1>
+<h1 class = "mt-5 text-center">Nino</h1>
 
-<p>Le but de ce blog est de maintenir une interaction forte et dynamique avec nos nombreux followers. Vous pourrez ainsi suivre nos péripéties et aventures🏖️ et nous soutenir durant nos expériences les plus fooooolles 🤗️ et intenses 😎️ </p>
+<p class = lead>Bonjour à tous ! Aujourd’hui, je souhaiterai vous faire part de ce dont je vous 
+    parlerai sur cette page : mon projet de voyage l’année prochaine, qui, on l’espère, 
+    sera possible malgré le covid. Je partirai pour ce voyage avec 3 amis en Asie du 
+    sud-est. Objectif : découvrir la nature locale, les différentes cultures et rejoindre 
+    un projet de conservation pour les espèces menacées en Indonésie ! La première étape
+    de ce voyage sera le Népal, afin de faire des treks dans les chaines de montagnes 
+    de l’Himalaya. Annapurna, camp de base de l’Everest, région du Mustang ou encore 
+    Langtang : on se donne 1 mois et demi pour découvrir ces magnifiques massifs. La suite 
+    nous emmenera en Inde, au Vietnam, en Malaisie et enfin en Indonésie où nous intégrerons 
+    un programme de conservation d’espèce en danger dans la région du triangle de corail, 
+    réunissant pas loin de 70 % de la biodiversité marine. Vous aurez plus d’informations 
+    au fur et à mesure de cette aventure, la suite dans un prochain billet, donc !</p>
 
 {% for article in articles %}
     <h1 class = "mt-5">{{article["title"]}}</h1>

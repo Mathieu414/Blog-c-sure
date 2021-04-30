@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1 class = "mt-5">Poste tes news sur ton article !</h1>
+<h1 class = "mt-5 text-center">Poste tes news sur ton article !</h1>
 
-<h2>Identification :</h2>
+<h2 class = "mt-5 text-center">Identification :</h2>
 <div class="row justify-content-center">
     <div class="col-lg-5 col-sm-10">
         <form method = "get">
@@ -13,7 +13,7 @@
             </div>
             <div class="form-group">
                 <label for="pass">Mot de passe :</label>
-                <input type="password" class="form-control" id="pass" name="password" required>
+                <input type="password" class="form-control" id="pass" name="password" placeholder = "Mot de passe" required>
             </div>
             <button type="submit" class="btn btn-primary mt-2">Submit</button>
         </form>
@@ -22,20 +22,20 @@
 
 
 {% if user in ["avergnaud","avilanoba","mperrin","lpetitjean","nmolin"] %}
-    <h1 class = "mt-5">Bienvenue {{user}}</h1>
+    <h2 class = "mt-5 text-center">Bienvenue {{user}}</h1>
     <form method="post">
-        <div class="col col-md-4">
+        <div class="col col-md-4 mt-5">
             <div class="form-group">
                 <label for="title">Titre du paragraphe :</label>
                 <input class="form-control" type="text" id="title" name="title" placeholder="Titre du paragraphe">
             </div>
         </div>
         
-        <div class="form-group">
+        <div class="form-group mt-2">
             <label for="news">Ton texte :</label>
             <textarea class="form-control" id="news" name="news" placeholder="Enrichit nous de tes nouvelles" rows="5"></textarea>
         </div>
-        <button type="submit" class="btn btn-primary m-2">Submit</button>
+        <button type="submit" class="btn btn-primary m-3">Submit</button>
     </form>
 {% endif %}
 

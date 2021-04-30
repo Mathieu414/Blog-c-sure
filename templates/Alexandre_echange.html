@@ -1,9 +1,26 @@
 {% extends "base.html" %}
+{% set active_page = "alexandre" %}
 
 {% block content %}
-<h1>About the "watch my life" project</h1>
+<h1 class = "mt-5 text-center">Alexandre Vilanoba</h1>
 
-<p>Le but de ce blog est de maintenir une interaction forte et dynamique avec nos nombreux followers. Vous pourrez ainsi suivre nos péripéties et aventures🏖️ et nous soutenir durant nos expériences les plus fooooolles 🤗️ et intenses 😎️ </p>
+<p class = lead>Dans le cadre de mon échange académique en 2021, j’ai la chance d’étudier 
+    un semestre à l’université d’
+    <a href="https://www.google.fr/maps/place/Universit%C3%A9+Aalto/@60.1873282,24.8043746,11.82z/data=!4m5!3m4!1s0x468df5ecd13f9ed1:0x4240e7a8e62add5a!8m2!3d60.1866693!4d24.827682"
+    class="link-secondary">Aalto</a>, en Finlande. Etant donnée l’urgence environnementale 
+    à laquelle nous sommes confrontés, j’ai souhaité réfléchir aux moyens de réduire au 
+    maximum mon empreinte carbone pendant ce voyage. J’ai donc décidé de construire un 
+    projet qui consiste à rejoindre Helsinki en vélo : <strong>VélO2</strong>. S’il s’inscrit dans une 
+    démarche écologique, c’est aussi un grand défi sportif qu’il ne faut pas sous-estimer ! 
+    En passant par la Belgique, les Pays-Bas, l’Allemagne, le Danemark et la Suède, 
+    l’itinéraire compte plus de 2000 kms, de quoi sentir ses jambes brûler. 
+    Ce projet est aussi un prétexte pour voyager à travers l’Europe à moindre coût 
+    et pour faire de belles rencontres. Il est prévu de dormir au maximum chez l’habitant, 
+    moyennant services et partage. Dans l’idéal, je souhaiterais mener quelques 
+    actions de volontariat dans différentes communes de passage. 
+    Ce projet est bien entendu ouvert à tous, que ce soit pour se joindre au voyage, 
+    me conseiller ou m’aider à son développement. Pour en savoir plus, contacte-moi au : 06.58.84.81.45 ! 
+</p>
 
 {% for article in articles %}
     <h1 class = "mt-5">{{article["title"]}}</h1>

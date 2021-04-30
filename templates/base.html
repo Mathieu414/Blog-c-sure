@@ -7,19 +7,40 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-{% block head %}{% endblock %}
+    {% block head %}{% endblock %}
   </head>
+  
+  <!--Element en python permettant de rendre la navbar dynamique-->
+  {% set navigation_bar = [ ('loup', "Loup's life"), 
+  ('nino', "Nino's life"), 
+  ('alexandre', 'Alexandre'),
+  ('shn', "SHN's life")
+    ] -%}
+
+  {% set active_page = active_page|default('index') -%}
+
   <body>
     <!--Nouvelle version du navbar utilisant bootstrap-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-          <a class="navbar-brand" href="{{ url_for('index') }}">Accueil</a>
+          <a class="navbar-brand mb-0 h1" href="{{ url_for('index') }}">Accueil</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
       
         <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
+            {% for id, caption in navigation_bar %}
+              <li 
+                {% if id == active_page %} class="active"{% endif
+                %}
+                {% if id != active_page %} class="nav-item"{% endif
+                  %}><a class="nav-link" href="{{ url_for(id) }}">{{ caption|e }}</a>
+              </li>   
+            {% endfor %}
+
+            <!--
+
             <li class="nav-item">
               <a class="nav-link" href="{{ url_for('loup') }}">Loup's life</a>
             </li>
@@ -35,11 +56,25 @@
             <li class="nav-item">
               <a class="nav-link" href="{{ url_for('new') }}">New Post</a>
             </li>
+                          
+            -->
           </ul>
-          <form class="d-flex">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
+          <div class = "d-flex">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link navbar-brand" href="{{ url_for('new') }}">New Post</a>
+              </li>
+            
+              <li>
+                <form class = "d-flex">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+              </li>
+
+            </ul>
+          </div>
+          
         </div>
       </div>
       
